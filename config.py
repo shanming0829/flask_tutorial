@@ -3,6 +3,8 @@ from util.common import combine_path
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+OPENID_TMP = combine_path(basedir, 'tmp')
+
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + combine_path(basedir, 'app.db')
 SQLALCHEMY_MIGRATE_REPO = combine_path(basedir, 'db_repository')
 

@@ -18,7 +18,7 @@ def add_user():
 
 
 def query_user():
-    users = models.User.query.all()
+    users = models.User.query.filter_by(username='aaa').first()
     print(users)
 
 
@@ -41,5 +41,11 @@ def clear_all():
     db.session.commit()
 
 
+def add_user_password():
+    user1 = models.User(username='aaa', password='aaa', email='aaa@email.com')
+    db.session.add(user1)
+    db.session.commit()
+
+
 if __name__ == '__main__':
-    clear_all()
+    query_user()

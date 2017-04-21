@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 
 lm = LoginManager(app)
 lm.login_view = 'login'
-oid = OpenID(app, app.config['OPENID_TMP'])
+# oid = OpenID(app, app.config['OPENID_TMP'])
 
 from app import views
 from app import models

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <script type="text/javascript">
+        function set_openid(openid, pr) {
+            var username_match = openid.search('<username>');
+            if (username_match != -1) {
+                // openid requires username
+                var user_name = prompt('Enter your ' + pr + ' username');
+                openid = openid.substr(0, username_match) + user_name
+            }
+            var login_form = document.forms['login'];
+            login_form.elements['openid'].value = openid
+        }
+    </script>
+
+    <h1>Sign In</h1>
+    <form action="" method="post" name="login">
+        {{ form.hidden_tag() }}
+        <p>
+            Please enter your Username: {{ form.username(size=80) }}<br>
+        </p>
+        <p>
+            Please enter your Password: {{ form.password(size=80) }}<br>
+        </p>
+        <p>{{ form.remember_me }} Remember Me</p>
+        <p>
+            <input type="submit" value="Sign In">
+        </p>
+    </form>
+{% endblock %}
